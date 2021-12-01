@@ -2,6 +2,8 @@
 #include<fstream>
 #include<vector>
 
+using namespace std;
+
 int part1(vector<int> input){
     int ans;
     for(vector<int>::iterator i = input.begin(); i != input.end(); i++){
@@ -21,4 +23,5 @@ int main(){
         input.push_back(i);
     }
     cout << part1(input) << endl;// << part2(input) << endl;
+    return 0;
 }
