@@ -6,8 +6,26 @@
 
 using namespace std;
 
-int part2(vector<int> input){
-    return 0;
+int part2(queue<pair<string, int>> input){
+    int depth = 0;
+    int pos = 0;
+    int aim = 0;
+    while(!input.empty()){
+        string inst = input.front().first;
+        int dist = input.front().second;
+        input.pop();
+        if(inst == "forward"){
+            pos += dist;
+            depth += aim*dist;
+        } 
+        else if(inst == "down"){
+            aim += dist;
+        }
+        else if(inst == "up"){
+            aim -= dist;
+        }
+    }
+    return depth*pos;
 }
 
 int part1(queue<pair<string, int>> input){
@@ -39,6 +57,6 @@ int main(){
         pair<string, int> p(s, i);
         input.push(p);
     }
-    cout << part1(input) << endl; //<< part2(input) << endl;
+    cout << part1(input) << endl << part2(input) << endl;
     return 0;
 }
